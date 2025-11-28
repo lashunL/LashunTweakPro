@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lashun Tweak Pro Installer</title>
+  <link rel="stylesheet" href="wizard.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Lashun Tweak Pro PRO EDITION - Setup Wizard</h1>
+    <p>This wizard prepares Windows to run the application by setting PowerShell policies, creating config folders, and validating dependencies.</p>
+    <button id="run">Run Setup</button>
+    <pre id="log"></pre>
+  </div>
+  <script>
+    const log = document.getElementById('log');
+    const runBtn = document.getElementById('run');
+
+    function append(text) {
+      log.textContent += `\n${new Date().toLocaleTimeString()} - ${text}`;
+    }
+
+    runBtn.addEventListener('click', async () => {
+      append('Starting setup...');
+      runBtn.disabled = true;
+      try {
+        const { run } = require('./setup');
+        run();
+        append('Setup finished successfully.');
+      } catch (err) {
+        append('Error: ' + err.message);
+      } finally {
+        runBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

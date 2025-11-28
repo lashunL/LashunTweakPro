@@ -1,0 +1,28 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: #e2e8f0;
+}
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  background: #1e293b;
+  padding: 20px;
+  border-radius: 12px;
+  border: 1px solid #334155;
+}
+button {
+  background: #7c3aed;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+pre {
+  background: #0f172a;
+  padding: 12px;
+  border-radius: 8px;
+  min-height: 200px;
+  overflow: auto;
+}
